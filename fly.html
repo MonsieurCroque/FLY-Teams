@@ -1,78 +1,52 @@
 <!DOCTYPE html>
 
 <html>
-<div> Enter the names of the participants to FLY 2018 Berlin:</div>
+<head>
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="fly.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</head>
+<body>
+<h5 class="display-4"> Enter the names of the participants to FLY 2018 Berlin:</h5>
 <br/>
-<div>
-	<input id="1"></input>
+<div class="input-group">
+	<div class="input-group-prepend">
+		<label class="input-group-text" for="inputNb">New group of </label>
+	</div>
+	<select class="custom-select" id="inputNb">
+	<option selected>Choose...</option>
+	<option value="1">One</option>
+	<option value="2">Two</option>
+	 	<option value="3">Three</option>
+	</select>
+	<a class="btn btn-primary" role="button" href="javascript:add()"> Add</a>
 </div>
-<div>
-	<input id="2"></input>
+<br/>
+<div id="GroupeInp">
+	<div id="newGroup" style="display:none;float:left">
+	</div>
 </div>
-<div>
-	<input id="3"></input>
-</div>
-<div>
-	<input id="4"></input>
-</div>
-<div>
-	<input id="5"></input>
-</div>
-<div>
-	<input id="6"></input>
-</div>
-<div>
-	<input id="7"></input>
-</div>
-<div>
-	<input id="8"></input>
-</div>
-<div>
-	<input id="9"></input>
-</div>
-<div>
-	<input id="10"></input>
-</div>
-<div>
-	<input id="11"></input>
-</div>
-<div>
-	<input id="12"></input>
-</div>
-<div>
-	<input id="13"></input>
-</div>
-<div>
-	<input id="14"></input>
-</div>
-<div>
-	<input id="15"></input>
-</div>
-<a href="javascript:newTeams()"> Click here to create new random teams !</a>
+<div style="width:100%;float:left">
+<br/>
+<a class="btn btn-success col-4" role="button" href="javascript:newTeams()"> Click here to create new random teams !</a>
 <br/>
 <br/>
-<div id="teams">
+<br/>
+<br/>
 </div>
-
+<div id="Result" style="display:none;width:100%;float:left">
+	<table style="width:100%">
+  		<thead>
+			<tr>
+				<th scope="col">Number</th>
+				<th scope="col">Participants</th>
+				<th scope="col">Room</th>
+				<th scope="col">Hour</th>
+			</tr>
+		</thead>
+		<tbody id="legende">
+		</tbody>
+	</table>
+</div>
+</body>
 </html>
-<script>
-	function newTeams(){
-		Team = [0 ,0 ,0 ,0 ,0]
-		TeamStr = ["", "", "", "", ""]
-		for(i=1; i<16; i++){
-			team = Math.floor(Math.random() * 5);
-			while(Team[team] == 3){
-				team = Math.floor(Math.random() * 5);
-			}
-			console.log(team)
-			Team[team] += 1
-			TeamStr[team] += " " + document.getElementById("" + i).value
-			console.log(TeamStr)
-			console.log(Team)
-		}
-		document.getElementById("teams").innerHTML = ""
-		for(i=1; i<6; i++){
-			document.getElementById("teams").innerHTML += "Team n0 " + i + ":" + TeamStr[i-1] + "<br/>"
-		}
-	}
-</script>
