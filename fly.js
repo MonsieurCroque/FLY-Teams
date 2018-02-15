@@ -26,6 +26,7 @@ function newTeams(){
 	var TotalVect = []
 	var TeamCount = [0,0,0,0,0]
 	var Team = [[],[],[],[],[]]
+	Infos = [["D266","12:45"],["Lecture Hall 3","13:00"],["Lecture Hall 3", "13:15"],["Lecture Hall 6", "13:30"],["D008", "13:45"]]
 	Count = 0
 	for (i=1; i<=nbTotal; i++){
 		if ($(".Group" + i) != null){
@@ -57,6 +58,7 @@ function newTeams(){
 			Team[team].push(Groups[i][j])
 		}
 	}
+	console.log(Team)
 	for(i=0; i<5; i++){
 		if (Team[i].length >0){
 			count = i+1
@@ -65,7 +67,7 @@ function newTeams(){
 			for (j = 0; j < TeamCount[i];j++){
 				acc += Team[i][j] + "<br/>"
 			}
-			acc += "</td><td>Team "+count+"</td><td>Team "+count+"</td></tr>"
+			acc += "</td><td>"+Infos[i][0]+"</td><td>"+Infos[i][1]+"</td></tr>"
 			$(acc).appendTo($("#legende"));
 		}
 	}
